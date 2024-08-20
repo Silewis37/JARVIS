@@ -1,0 +1,55 @@
+{
+  "$schema": "https://cdn.statically.io/gh/nguyenngoclongdev/cdn/main/schema/v10/terminal-keeper.json",
+  "theme": "tribe",
+  "active": "default",
+  "activateOnStartup": true,
+  "keepExistingTerminals": false,
+  "sessions": {
+    "default": [
+      {
+        "name": "JARVIS Main Voice Controller",
+        "autoExecuteCommands": false,
+        "icon": "person",
+        "color": "terminal.ansiBlue",
+        "commands": [
+          "python3 main-vc.py"
+        ]
+      },
+      {
+        "name": "JARVIS Main CLI",
+        "autoExecuteCommands": false,
+        "icon": "vm-outline",
+        "color": "terminal.ansiBlue",
+        "commands": [
+          "python3 main-cli.py"
+        ]
+      },
+      {
+        "name": "Main Library Testing",
+        "autoExecuteCommands": false,
+        "icon": "vm-connect",
+        "color": "terminal.ansiBlue",
+        "commands": [
+          "python3 main.py"
+        ]
+      },
+      {
+        "name": "Testing",
+        "autoExecuteCommands": true,
+        "icon": "vm-active",
+        "color": "terminal.ansiRed",
+        "commands": [
+          "cd _tests"
+        ]
+      }
+    ],
+    "saved-session": [
+      {
+        "name": "connect",
+        "commands": [
+          ""
+        ]
+      }
+    ]
+  }
+}

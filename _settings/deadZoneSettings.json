@@ -1,0 +1,26 @@
+{
+    "Board Dimensions": {
+        "Board Width": 18,
+        "Board Height": 12
+    },
+    "DeadZone Sizing": {
+        "Width": 80
+    },
+    "DeadZone Calibration": {
+        "Active": true
+    },
+    "DeadZones": {
+        "Top": {
+            "Active": true
+        },
+        "Right": {
+            "Active": true
+        },
+        "Left": {
+            "Active": true
+        },
+        "Bottom": {
+            "Active": true
+        }
+    }
+}

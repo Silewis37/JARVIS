@@ -1,0 +1,10 @@
+thingiverse
+watchmode
+Mediapipe
+pyautogui
+imshow
+pymongo
+pupil_apriltags
+apriltag
+interp
+ollama

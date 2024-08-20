@@ -1,0 +1,14 @@
+{
+    "Right Hand": {
+        "Changer": false,
+        "Layer 1": false,
+        "Layer 2": true,
+        "Layer 3": false
+    },
+    "Left Hand": {
+        "Changer": false,
+        "Layer 1": false,
+        "Layer 2": true,
+        "Layer 3": false
+    }
+}
