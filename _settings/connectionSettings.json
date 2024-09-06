@@ -1,0 +1,136 @@
+{
+    "Github": {
+        "Repository(s)": [
+            {
+                "Owner": "Silewis37",
+                "Repo": "JARVIS"
+            },
+            {
+                "Owner": "Silewis37",
+                "Repo": "fastapi"
+            }
+        ],
+        "Forks": [
+            {
+                "Repo": "JARVIS",
+                "Active": true
+            },
+            {
+                "Repo": "fastapi",
+                "Active": false
+            }
+        ],
+        "Starred": [
+            {
+                "Repo": "JARVIS",
+                "Active": true
+            },
+            {
+                "Repo": "fastapi",
+                "Active": false
+            }
+        ],
+        "RepositoryCollaborators": [
+            {
+                "Repo": "JARVIS",
+                "Active": true
+            },
+            {
+                "Repo": "fastapi",
+                "Active": false
+            }
+        ],
+        "Commits": [
+            {
+                "Repo": "JARVIS",
+                "Active": true
+            },
+            {
+                "Repo": "fastapi",
+                "Active": false
+            }
+        ],
+        "RepositoryContributors": [
+            {
+                "Repo": "JARVIS",
+                "Active": true
+            },
+            {
+                "Repo": "fastapi",
+                "Active": false
+            }
+        ],
+        "RepositoryDeployments": [
+            {
+                "Repo": "JARVIS",
+                "Active": true
+            },
+            {
+                "Repo": "fastapi",
+                "Active": false
+            }
+        ],
+        "RepositoryTags": [
+            {
+                "Repo": "JARVIS",
+                "Active": true
+            },
+            {
+                "Repo": "fastapi",
+                "Active": false
+            }
+        ],
+        "RepositoryIssues": [
+            {
+                "Repo": "JARVIS",
+                "Active": true
+            },
+            {
+                "Repo": "fastapi",
+                "Active": false
+            }
+        ],
+        "RepositoryReleases": [
+            {
+                "Repo": "JARVIS",
+                "Active": true
+            },
+            {
+                "Repo": "fastapi",
+                "Active": false
+            }
+        ],
+        "RepositoryCommitActivity": [
+            {
+                "Repo": "JARVIS",
+                "Active": true
+            },
+            {
+                "Repo": "fastapi",
+                "Active": false
+            }
+        ],
+        "RepositoryTopics": [
+            {
+                "Repo": "JARVIS",
+                "Active": true
+            },
+            {
+                "Repo": "fastapi",
+                "Active": false
+            }
+        ],
+        "RepositoryWatchers": [
+            {
+                "Repo": "JARVIS",
+                "Active": true
+            },
+            {
+                "Repo": "fastapi",
+                "Active": false
+            }
+        ],
+        "Followers": true,
+        "UserRepositories": true
+    }
+}

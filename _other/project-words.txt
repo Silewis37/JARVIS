@@ -8,3 +8,4 @@ pupil_apriltags
 apriltag
 interp
 ollama
+fastapi

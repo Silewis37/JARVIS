@@ -26,7 +26,7 @@ def send_message(message):
   #- SO to use this properly and get a good output, you must do print(output[i], end='', flush=True) to get it to print properly, if you dont it will print on separate lines every time.
   output = []
   stream = ollama.chat(
-      model='JARVIS-SL',
+      model='JARVIS-SL-3',
       messages=[{'role': 'user', 'content': f'{message}'}],
       stream=True
   )
