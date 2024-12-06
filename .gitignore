@@ -15,3 +15,9 @@ src/_dump/
 
 # Ignore Bluetooth Device Settings Folder
 src/_settings/btSettings/
+
+# Ignore Package Installation Folder
+lib/
+include/
+bin/
+.vscode/
