@@ -96,7 +96,7 @@ def main():
       if not success:
           break
       
-      # Flip The Frame Horizontally 
+      # Flip The Frame Horizontally  
       frame = cv2.flip(frame, 1)
       
       TopZone, RightZone, LeftZone, BottomZone = handFunc.BoundingBox.DeadZoneChecking.CheckActiveZones()
