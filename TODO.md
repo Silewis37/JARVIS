@@ -1,0 +1,4 @@
+- Add A Python Script that Backups All of JARVIS
+  - Does a commit with the message "Backed up version of JARVIS"
+  - Pushes said commit to the GitHub repository
+  - Create a .zip file with the current version of JARVIS within it.
