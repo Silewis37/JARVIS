@@ -21,3 +21,6 @@ lib/
 include/
 bin/
 .vscode/
+
+# Ignore Backup Folder
+src/_Backup/
