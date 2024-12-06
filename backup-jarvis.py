@@ -8,6 +8,8 @@
 
 import os
 import sys
+import pyautogui
+import time
 
 #* Custom Libraries *#
 
@@ -28,7 +30,8 @@ import sys
 #! Main Program !#
 
 os.system("git commit")
-
+time.sleep(10)
+os.system("git push")
 
 
 #- UNASSIGNED COLOR -#
