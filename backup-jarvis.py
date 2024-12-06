@@ -29,8 +29,8 @@ import time
 
 #! Main Program !#
 
-os.system("git commit")
-time.sleep(10)
+os.system("git commit -a")
+time.sleep(5)
 os.system("git push")
 
 
