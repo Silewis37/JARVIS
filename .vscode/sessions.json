@@ -41,6 +41,15 @@
         "commands": [
           "cd _tests"
         ]
+      },
+      {
+        "name": "Github Management",
+        "autoExecuteCommands": false,
+        "icon": "github-alt",
+        "color": "terminal.ansiBlue",
+        "commands": [
+          "python3 main.py"
+        ]
       }
     ],
     "saved-session": [
