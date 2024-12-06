@@ -1,0 +1,14 @@
+# Ignore Rebekah's Model File Folder
+src/_other/Rebekah/
+
+# Ignore Samuel's Model File Folder
+src/_other/Samuel/
+
+# Ignore Master .ENV File
+src/.env
+
+# Ignore Entire Other Folder
+src/_other/
+
+# Ignore Entire Dump Folder
+src/_dump/
