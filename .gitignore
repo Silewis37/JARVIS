@@ -12,3 +12,6 @@ src/_other/
 
 # Ignore Entire Dump Folder
 src/_dump/
+
+# Ignore Bluetooth Device Settings file
+src/_settings/btSettings.json
