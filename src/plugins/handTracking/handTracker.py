@@ -12,10 +12,14 @@ import mediapipe.python.solutions.face_mesh as mpD
 import numpy as np
 from google.protobuf.json_format import MessageToDict 
 import json
+import os
+import sys
 
 #* Custom Libraries *#
 
-import plugins.handTracking.handFunctions as handFunc
+
+sys.path.append(os.path.abspath("./plugins/handTracking/"))
+import handFunctions as handFunc
 
 #^ Variables ^#
 

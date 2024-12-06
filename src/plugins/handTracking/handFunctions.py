@@ -34,7 +34,7 @@ class BoundingBox():
     def Start(frame1):
       path = "DeadZone Calibration.Active"
       new_value = True
-      with open("_settings/deadZoneSettings.json", 'r') as f:
+      with open(" ../../_settings/deadZoneSettings.json", 'r') as f:
           data = json.load(f)
 
       # Split the path into individual keys
@@ -48,14 +48,14 @@ class BoundingBox():
           current_object = current_object[key]
       current_object[keys[-1]] = new_value
 
-      with open("_settings/deadZoneSettings.json", 'w') as f:
+      with open("../../_settings/deadZoneSettings.json", 'w') as f:
           json.dump(data, f, indent=4)
       cv2.putText(frame1, "Calibrating...", (360, 550), cv2.FONT_HERSHEY_COMPLEX, 0.9, (0, 255, 0), 2)
       
     def Stop():
       path = "DeadZone Calibration.Active"
       new_value = False
-      with open("_settings/deadZoneSettings.json", 'r') as f:
+      with open("../../_settings/deadZoneSettings.json", 'r') as f:
           data = json.load(f)
 
       # Split the path into individual keys
@@ -69,12 +69,12 @@ class BoundingBox():
           current_object = current_object[key]
       current_object[keys[-1]] = new_value
 
-      with open("_settings/deadZoneSettings.json", 'w') as f:
+      with open("../../_settings/deadZoneSettings.json", 'w') as f:
           json.dump(data, f, indent=4)
   
   class DeadZoneChecking():
     def CheckActiveZones():
-      with open("_settings/deadZoneSettings.json", 'r') as f:
+      with open("../../_settings/deadZoneSettings.json", 'r') as f:
         data = json.load(f)
       TopZone = data["DeadZones"]["Top"]["Active"]
       RightZone = data["DeadZones"]["Right"]["Active"]
@@ -82,7 +82,7 @@ class BoundingBox():
       BottomZone = data["DeadZones"]["Bottom"]["Active"]
       return TopZone, RightZone, LeftZone, BottomZone
     def CalibrationCheck():
-      with open("_settings/deadZoneSettings.json", 'r') as f:
+      with open("../../_settings/deadZoneSettings.json", 'r') as f:
         data = json.load(f)
       calibrating = data["DeadZone Calibration"]["Active"]
       return calibrating
@@ -100,7 +100,7 @@ class BoundingBox():
       elif Area == "Bottom":
         path = "DeadZones.Bottom.Active"
       new_value = True
-      with open("_settings/deadZoneSettings.json", 'r') as f:
+      with open("../../_settings/deadZoneSettings.json", 'r') as f:
           data = json.load(f)
 
       # Split the path into individual keys
@@ -114,7 +114,7 @@ class BoundingBox():
           current_object = current_object[key]
       current_object[keys[-1]] = new_value
 
-      with open("_settings/deadZoneSettings.json", 'w') as f:
+      with open("../../_settings/deadZoneSettings.json", 'w') as f:
           json.dump(data, f, indent=4)
     
     def DeActivation(Area):
@@ -127,7 +127,7 @@ class BoundingBox():
       elif Area == "Bottom":
         path = "DeadZones.Bottom.Active"
       new_value = False
-      with open("_settings/deadZoneSettings.json", 'r') as f:
+      with open("../../_settings/deadZoneSettings.json", 'r') as f:
           data = json.load(f)
 
       # Split the path into individual keys
@@ -141,29 +141,29 @@ class BoundingBox():
           current_object = current_object[key]
       current_object[keys[-1]] = new_value
 
-      with open("_settings/deadZoneSettings.json", 'w') as f:
+      with open("../../_settings/deadZoneSettings.json", 'w') as f:
           json.dump(data, f, indent=4)
   
   
   
   class DeadZone():
     def Top(frame1, fWidth):
-      with open("_settings/deadZoneSettings.json", 'r') as f:
+      with open("../../_settings/deadZoneSettings.json", 'r') as f:
           data = json.load(f)
       width = data["DeadZone Sizing"]["Width"]
       cv2.rectangle(frame1, (0,0), (fWidth,width), (0,0,255), -1)
     def Bottom(frame1, fWidth):
-      with open("_settings/deadZoneSettings.json", 'r') as f:
+      with open("../../_settings/deadZoneSettings.json", 'r') as f:
           data = json.load(f)
       width = data["DeadZone Sizing"]["Width"]
       cv2.rectangle(frame1, (0,720), (fWidth,720-width),(0,0,255), -1)
     def Left(frame1, fHeight):
-      with open("_settings/deadZoneSettings.json", 'r') as f:
+      with open("../../_settings/deadZoneSettings.json", 'r') as f:
           data = json.load(f)
       width = data["DeadZone Sizing"]["Width"]
       cv2.rectangle(frame1, (0,0), (width,fHeight), (0,0,255), -1)
     def Right(frame1, fHeight):
-      with open("_settings/deadZoneSettings.json", 'r') as f:
+      with open("../../_settings/deadZoneSettings.json", 'r') as f:
           data = json.load(f)
       width = data["DeadZone Sizing"]["Width"]
       cv2.rectangle(frame1, (1280,0), (1280-width,fHeight), (0,0,255), -1)
@@ -172,7 +172,7 @@ class BoundingBox():
 class LeftHand():
   class CheckingLayers():
     def CheckActiveLayer():
-      with open("_settings/handLayer.json", 'r') as f:
+      with open("../../_settings/handLayer.json", 'r') as f:
         data = json.load(f)
       layer1 = data["Left Hand"]["Layer 1"]
       layer2 = data["Left Hand"]["Layer 2"]
@@ -238,7 +238,7 @@ class LeftHand():
         pathL = "Left Hand.Changer"
       new_value = True
       new_valueL = False
-      with open("_settings/handLayer.json", 'r') as f:
+      with open("../../_settings/handLayer.json", 'r') as f:
           data = json.load(f)
 
       # Split the path into individual keys
@@ -254,7 +254,7 @@ class LeftHand():
       current_object[keys[-1]] = new_value
       current_object[keysL[-1]] = new_valueL
 
-      with open("_settings/handLayer.json", 'w') as f:
+      with open("../../_settings/handLayer.json", 'w') as f:
           json.dump(data, f, indent=4)
   
   class Layer1():
@@ -371,7 +371,7 @@ class LeftHand():
 class RightHand():
   class CheckingLayers():
     def CheckActiveLayer():
-      with open("_settings/handLayer.json", 'r') as f:
+      with open("../../_settings/handLayer.json", 'r') as f:
         data = json.load(f)
       layer1 = data["Right Hand"]["Layer 1"]
       layer2 = data["Right Hand"]["Layer 2"]
@@ -437,7 +437,7 @@ class RightHand():
         pathL = "Right Hand.Changer"
       new_value = True
       new_valueL = False
-      with open("_settings/handLayer.json", 'r') as f:
+      with open("../../_settings/handLayer.json", 'r') as f:
           data = json.load(f)
 
       # Split the path into individual keys
@@ -453,7 +453,7 @@ class RightHand():
       current_object[keys[-1]] = new_value
       current_object[keysL[-1]] = new_valueL
 
-      with open("_settings/handLayer.json", 'w') as f:
+      with open("../../_settings/handLayer.json", 'w') as f:
           json.dump(data, f, indent=4)
   
   class Layer1():
@@ -599,7 +599,7 @@ class BothHands():
         Rpath = "Right Hand.Layer 4"
         Lpath = "Left Hand.Layer 4"
       new_value = True
-      with open("_settings/handLayer.json", 'r') as f:
+      with open("../../_settings/handLayer.json", 'r') as f:
           data = json.load(f)
 
       # Split the path into individual keys
@@ -619,7 +619,7 @@ class BothHands():
           current_object = current_object[key]
       current_object[Lkeys[-1]] = new_value
 
-      with open("_settings/handLayer.json", 'w') as f:
+      with open("../../_settings/handLayer.json", 'w') as f:
           json.dump(data, f, indent=4)
           
   class Layer1():
