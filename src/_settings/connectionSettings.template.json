@@ -1,0 +1,136 @@
+{
+  "Github": {
+      "Repository(s)": [
+          {
+              "Owner": "GITHUB USER",
+              "Repo": "REPOSITORY NAME"
+          },
+          {
+              "Owner": "GITHUB USER",
+              "Repo": "REPOSITORY NAME"
+          }
+      ],
+      "Forks": [
+          {
+              "Repo": "REPOSITORY NAME",
+              "Active": true
+          },
+          {
+              "Repo": "REPOSITORY NAME",
+              "Active": false
+          }
+      ],
+      "Starred": [
+          {
+              "Repo": "REPOSITORY NAME",
+              "Active": true
+          },
+          {
+              "Repo": "REPOSITORY NAME",
+              "Active": false
+          }
+      ],
+      "RepositoryCollaborators": [
+          {
+              "Repo": "REPOSITORY NAME",
+              "Active": true
+          },
+          {
+              "Repo": "REPOSITORY NAME",
+              "Active": false
+          }
+      ],
+      "Commits": [
+          {
+              "Repo": "REPOSITORY NAME",
+              "Active": true
+          },
+          {
+              "Repo": "REPOSITORY NAME",
+              "Active": false
+          }
+      ],
+      "RepositoryContributors": [
+          {
+              "Repo": "REPOSITORY NAME",
+              "Active": true
+          },
+          {
+              "Repo": "REPOSITORY NAME",
+              "Active": false
+          }
+      ],
+      "RepositoryDeployments": [
+          {
+              "Repo": "REPOSITORY NAME",
+              "Active": true
+          },
+          {
+              "Repo": "REPOSITORY NAME",
+              "Active": false
+          }
+      ],
+      "RepositoryTags": [
+          {
+              "Repo": "REPOSITORY NAME",
+              "Active": true
+          },
+          {
+              "Repo": "REPOSITORY NAME",
+              "Active": false
+          }
+      ],
+      "RepositoryIssues": [
+          {
+              "Repo": "REPOSITORY NAME",
+              "Active": true
+          },
+          {
+              "Repo": "REPOSITORY NAME",
+              "Active": false
+          }
+      ],
+      "RepositoryReleases": [
+          {
+              "Repo": "REPOSITORY NAME",
+              "Active": true
+          },
+          {
+              "Repo": "REPOSITORY NAME",
+              "Active": false
+          }
+      ],
+      "RepositoryCommitActivity": [
+          {
+              "Repo": "REPOSITORY NAME",
+              "Active": true
+          },
+          {
+              "Repo": "REPOSITORY NAME",
+              "Active": false
+          }
+      ],
+      "RepositoryTopics": [
+          {
+              "Repo": "REPOSITORY NAME",
+              "Active": true
+          },
+          {
+              "Repo": "REPOSITORY NAME",
+              "Active": false
+          }
+      ],
+      "RepositoryWatchers": [
+          {
+              "Repo": "REPOSITORY NAME",
+              "Active": true
+          },
+          {
+              "Repo": "REPOSITORY NAME",
+              "Active": false
+          }
+      ],
+      "Followers": true,
+      "UserRepositories": true
+  }
+}

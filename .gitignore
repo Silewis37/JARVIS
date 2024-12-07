@@ -13,8 +13,9 @@ src/_other/
 # Ignore Entire Dump Folder
 src/_dump/
 
-# Ignore Bluetooth Device Settings Folder
+# Ignore Settings Folder
 src/_settings/btSettings/
+src/_settings/connectionSettings/
 
 # Ignore Package Installation Folder
 lib/
@@ -24,3 +25,9 @@ bin/
 
 # Ignore Backup Folder
 src/_Backup/
+
+# Ignore Dump Folder
+src/_dump/
+
+# Ignore Testing Folder
+src/_tests/
