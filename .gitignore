@@ -26,8 +26,8 @@ bin/
 # Ignore Backup Folder
 src/_Backup/
 
-# Ignore Dump Folder
-src/_dump/
+# Ignore Bak Folder
+src/_bak/
 
 # Ignore Testing Folder
-src/_tests/
+src/_testing/
