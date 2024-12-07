@@ -8,6 +8,7 @@ cython
 datetime
 dlib
 mediapipe
+mysql-connector-python
 numpy
 ollama
 opencv-contrib-python
