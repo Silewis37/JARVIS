@@ -17,8 +17,8 @@ import os
 import sys
 
 #* Custom Libraries *#
-sys.path.append(os.path.abspath("../../plugins/"))
-import mongoDB.mongoIN as mongoIN
+sys.path.append(os.path.abspath("../../"))
+import plugins.mongoDB.mongoIN as mongoIN
 
 #^ Variables ^#
 

@@ -18,18 +18,22 @@ import sys
 
 #* Custom Libraries *#
 
-sys.path.append(os.path.abspath("../../plugins/"))
+sys.path.append(os.path.abspath("../../"))
 
-import connections.thingiverse as thv
-import voiceBox as VBox
+import plugins.connections.thingiverse as thv
+import interfaces.desktop.voiceBox as VBox
 import speech_recognition as sr
-import mongoDB.mongoIN as mongoIN
+import plugins.mongoDB.mongoIN as mongoIN
+import plugins.sql.Inbound as MySQL
+import _settings.settingHandler as settingsHandler
 
 #^ Variables ^#
 
 engine = pyttsx3.init('nsss')
 source = sr.Microphone()
 r = sr.Recognizer()
+mongoDBSetting = settingsHandler.DatabaseSettings.checkMongoDB("../../_settings/connectionSettings/connectionSettings.json")
+MySQLSetting = settingsHandler.DatabaseSettings.checkMySQL("../../_settings/connectionSettings/connectionSettings.json")
 
 #& Functions &#
 
@@ -41,15 +45,28 @@ def Speak(text):
 
 def projectMode_main():
     
-    #| User Requests
-    
-    search_list = mongoIN.userReq("ProjectMode.Search")
-    toPrinter_list = mongoIN.userReq("ProjectMode.Printer")
-    downloadFiles_list = mongoIN.userReq("ProjectMode.Download")
-    exitProjectMode_list = mongoIN.userReq("BackToHome")
-    printOne_list = mongoIN.userReq("ProjectMode.Download.One")
-    printTwo_list = mongoIN.userReq("ProjectMode.Download.Two")
-    printThree_list = mongoIN.userReq("ProjectMode.Download.Three")
+    if MySQLSetting is True:
+        #| User Requests
+        
+        search_list = MySQL.userReq("ProjectMode.Search")
+        toPrinter_list = MySQL.userReq("ProjectMode.Printer")
+        downloadFiles_list = MySQL.userReq("ProjectMode.Download")
+        exitProjectMode_list = MySQL.userReq("BackToHome")
+        printOne_list = MySQL.userReq("ProjectMode.Download.One")
+        printTwo_list = MySQL.userReq("ProjectMode.Download.Two")
+        printThree_list = MySQL.userReq("ProjectMode.Download.Three")
+    if mongoDBSetting is True:
+        #| User Requests
+        
+        search_list = mongoIN.userReq("ProjectMode.Search")
+        toPrinter_list = mongoIN.userReq("ProjectMode.Printer")
+        downloadFiles_list = mongoIN.userReq("ProjectMode.Download")
+        exitProjectMode_list = mongoIN.userReq("BackToHome")
+        printOne_list = mongoIN.userReq("ProjectMode.Download.One")
+        printTwo_list = mongoIN.userReq("ProjectMode.Download.Two")
+        printThree_list = mongoIN.userReq("ProjectMode.Download.Three")
+    if mongoDBSetting is False and MySQLSetting is False:
+        exit("DATABASE SELECTION ERROR!")
     
     speech_rate = engine.getProperty('rate')
     with sr.Microphone() as source:

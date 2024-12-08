@@ -24,7 +24,7 @@ print("\n".join(sys.path))
 
 
 import plugins.connections.thingiverse as thingiverse
-import projectMode as projectMode
+import interfaces.desktop.projectMode as projectMode
 import plugins.mongoDB.mongoIN as mongoDB
 import plugins.sql.Inbound as MySQL
 import plugins.Ollama.mainJarvis as MJ

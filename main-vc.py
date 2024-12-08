@@ -5,10 +5,12 @@
 
 #* Libraries *#
 
+import os
+import sys
 
 
 #* Custom Libraries *#
-
+sys.path.append(os.path.abspath("./src/"))
 import interfaces.desktop.voiceBox as VBox
 
 #^ Variables ^#
