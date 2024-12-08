@@ -45,6 +45,17 @@ def userReq(requestType):
     return requestList
   return requestList
 
+def jarvisResp(responseType):
+  query = f"SELECT RESPONSE FROM jarvis_responses WHERE RESPONSETYPE='{responseType}'"
+  cursor.execute(query)
+  rows = cursor.fetchall()
+  for row in rows:
+    json_data = row[0]  # Assuming the JSON data is in the first column
+    parsed_data = json.loads(str(json_data))  # Parse JSON to a Python dictionary
+    responseList = parsed_data.get('response', [])
+    return responseList
+  return responseList
+
 #= Classes =#
 
 #~ define and build classes here

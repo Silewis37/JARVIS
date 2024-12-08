@@ -20,7 +20,7 @@ import os
 
 import plugins.connections.thingiverse as thingiverse
 import interfaces.desktop.projectMode as projectMode
-import plugins.mongoDB.mongoIN as mongoIN
+import plugins.sql.Inbound as MySQL
 import plugins.Ollama.mainJarvis as MJ
 
 #^ Variables ^#
@@ -67,23 +67,23 @@ def recognize_main(): #Main reply call function
     speech_rate = engine.getProperty('rate')
     
     #| User Requests
-    hello_list = mongoIN.userReq("Hello")
-    how_are_you = mongoIN.userReq("Greetings")
-    time_list = mongoIN.userReq("Time")
-    day_list = mongoIN.userReq("Date")
-    printing_list = mongoIN.userReq("ProjectMode.Access")
-    dismissed_list = mongoIN.userReq("Dismiss")
-    stem_list = mongoIN.userReq("STEM")
-    stem_team_list = mongoIN.userReq("STEM.Teams")
-    say_hello_list = mongoIN.userReq("SayHello")
+    hello_list = MySQL.userReq("Hello")
+    how_are_you = MySQL.userReq("Greetings")
+    time_list = MySQL.userReq("Time")
+    day_list = MySQL.userReq("Date")
+    printing_list = MySQL.userReq("ProjectMode.Access")
+    dismissed_list = MySQL.userReq("Dismiss")
+    stem_list = MySQL.userReq("STEM")
+    stem_team_list = MySQL.userReq("STEM.Teams")
+    say_hello_list = MySQL.userReq("SayHello")
     
     #@ Jarvis Responses
     
-    reply_hello_list = mongoIN.jarvisResp("Hellos")
-    reply_how_are_you = mongoIN.jarvisResp("Greetings")
-    reply_stem_list = mongoIN.jarvisResp("STEM")
-    reply_stem_team_list = mongoIN.jarvisResp("STEM.Teams")
-    reply_say_hello_list = mongoIN.jarvisResp("SayHello")
+    reply_hello_list = MySQL.jarvisResp("Hellos")
+    reply_how_are_you = MySQL.jarvisResp("Greetings")
+    reply_stem_list = MySQL.jarvisResp("STEM")
+    reply_stem_team_list = MySQL.jarvisResp("STEM.Teams")
+    reply_say_hello_list = MySQL.jarvisResp("SayHello")
     
     
     with sr.Microphone() as source: #sets microphone
