@@ -21,6 +21,7 @@ pyautogui
 pyaudio
 pyttsx3
 speechrecognition
+python-dotenv
 
 #########################
 
