@@ -13,13 +13,17 @@
 import pyttsx3
 import time
 from playsound import playsound
+import os
+import sys
 
 #* Custom Libraries *#
 
-import plugins.connections.thingiverse as thv
-import interfaces.desktop.voiceBox as VBox
+sys.path.append(os.path.abspath("../../plugins/"))
+
+import connections.thingiverse as thv
+import voiceBox as VBox
 import speech_recognition as sr
-import plugins.mongoDB.mongoIN as mongoIN
+import mongoDB.mongoIN as mongoIN
 
 #^ Variables ^#
 

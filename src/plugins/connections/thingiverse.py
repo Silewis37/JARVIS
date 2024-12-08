@@ -14,10 +14,11 @@ import requests
 import json
 import time
 import os
+import sys
 
 #* Custom Libraries *#
-
-import plugins.mongoDB.mongoIN as mongoIN
+sys.path.append(os.path.abspath("../../plugins/"))
+import mongoDB.mongoIN as mongoIN
 
 #^ Variables ^#
 

@@ -132,5 +132,9 @@
       ],
       "Followers": true,
       "UserRepositories": true
+  },
+  "Database Settings": {
+    "MySQL": true,
+    "MongoDB": false
   }
 }

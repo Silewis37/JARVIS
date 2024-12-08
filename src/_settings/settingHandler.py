@@ -18,11 +18,11 @@ import time
 #^ Variables ^#
 
 AprilTag_HoloMat = "AT-HM-Para.json"
-BlueTooth = "btSettings.json"
+BlueTooth = "./btSettings/btSettings.json"
 DeadZone = "deadZoneSettings.json"
 General = "generalSettings.json"
 handLayers = "handLayer.json"
-Connections = "connectionSettings.json"
+Connections = "./connectionSettings/connectionSettings.json"
 
 #& Functions &#
 
@@ -931,9 +931,17 @@ class ConnectionSettings():
               json.dump(data, f, indent=4)
               print(f"The Repository {Repository} Is now Actively Being Monitored For Any New Repository Watchers.")
       
-      
-      
-
+class DatabaseSettings():
+  def checkMySQL(path):
+    with open(path, "r") as f:
+        data = json.load(f)
+        output = data["Database Settings"]["MySQL"]
+        return output
+  def checkMongoDB(path):
+    with open(path, "r") as f:
+        data = json.load(f)
+        output = data["Database Settings"]["MongoDB"]
+        return output
 #! Main Program !#
 
 # ConnectionSettings.Github.RepositoryManger.AddRepository("Silewis37", "Test")
@@ -943,6 +951,9 @@ class ConnectionSettings():
 # ConnectionSettings.Github.RepositoryManger.RemoveRepository("Silewis37", "Test")
 # ConnectionSettings.Github.Updater.UpdateForks("Test", Remove=True)
 # ConnectionSettings.Github.Updater.UpdateStarred("Test", Remove=True)
+
+#print(DatabaseSettings.checkMongoDB("src/_settings/connectionSettings"))
+
 
 
 

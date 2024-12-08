@@ -15,19 +15,28 @@ import random #to allow random replies to questions
 import datetime
 from playsound import playsound
 import os
+import sys
 
 #* Custom Libraries *#
 
+sys.path.append(os.path.abspath("../../"))
+print("\n".join(sys.path))
+
+
 import plugins.connections.thingiverse as thingiverse
-import interfaces.desktop.projectMode as projectMode
+import projectMode as projectMode
+import plugins.mongoDB.mongoIN as mongoDB
 import plugins.sql.Inbound as MySQL
 import plugins.Ollama.mainJarvis as MJ
+import _settings.settingHandler as settingsHandler
 
 #^ Variables ^#
 
 keywords = [("jarvis", 0), ("hey jarvis", 1)]
 source = sr.Microphone()
 engine = pyttsx3.init('nsss') #Initialises the speech engine
+mongoDBSetting = settingsHandler.DatabaseSettings.checkMongoDB("../../_settings/connectionSettings/connectionSettings.json")
+MySQLSetting = settingsHandler.DatabaseSettings.checkMySQL("../../_settings/connectionSettings/connectionSettings.json")
 
 #& Functions &#
 
@@ -66,24 +75,46 @@ def start_recognizer(): #initial keyword call
 def recognize_main(): #Main reply call function
     speech_rate = engine.getProperty('rate')
     
-    #| User Requests
-    hello_list = MySQL.userReq("Hello")
-    how_are_you = MySQL.userReq("Greetings")
-    time_list = MySQL.userReq("Time")
-    day_list = MySQL.userReq("Date")
-    printing_list = MySQL.userReq("ProjectMode.Access")
-    dismissed_list = MySQL.userReq("Dismiss")
-    stem_list = MySQL.userReq("STEM")
-    stem_team_list = MySQL.userReq("STEM.Teams")
-    say_hello_list = MySQL.userReq("SayHello")
-    
-    #@ Jarvis Responses
-    
-    reply_hello_list = MySQL.jarvisResp("Hellos")
-    reply_how_are_you = MySQL.jarvisResp("Greetings")
-    reply_stem_list = MySQL.jarvisResp("STEM")
-    reply_stem_team_list = MySQL.jarvisResp("STEM.Teams")
-    reply_say_hello_list = MySQL.jarvisResp("SayHello")
+    if MySQLSetting is True:
+        #| User Requests
+        hello_list = MySQL.userReq("Hello")
+        how_are_you = MySQL.userReq("Greetings")
+        time_list = MySQL.userReq("Time")
+        day_list = MySQL.userReq("Date")
+        printing_list = MySQL.userReq("ProjectMode.Access")
+        dismissed_list = MySQL.userReq("Dismiss")
+        stem_list = MySQL.userReq("STEM")
+        stem_team_list = MySQL.userReq("STEM.Teams")
+        say_hello_list = MySQL.userReq("SayHello")
+        
+        #@ Jarvis Responses
+        
+        reply_hello_list = MySQL.jarvisResp("Hellos")
+        reply_how_are_you = MySQL.jarvisResp("Greetings")
+        reply_stem_list = MySQL.jarvisResp("STEM")
+        reply_stem_team_list = MySQL.jarvisResp("STEM.Teams")
+        reply_say_hello_list = MySQL.jarvisResp("SayHello")
+    if mongoDBSetting is True:
+        #| User Requests
+        hello_list = mongoDB.userReq("Hello")
+        how_are_you = mongoDB.userReq("Greetings")
+        time_list = mongoDB.userReq("Time")
+        day_list = mongoDB.userReq("Date")
+        printing_list = mongoDB.userReq("ProjectMode.Access")
+        dismissed_list = mongoDB.userReq("Dismiss")
+        stem_list = mongoDB.userReq("STEM")
+        stem_team_list = mongoDB.userReq("STEM.Teams")
+        say_hello_list = mongoDB.userReq("SayHello")
+        
+        #@ Jarvis Responses
+        
+        reply_hello_list = mongoDB.jarvisResp("Hellos")
+        reply_how_are_you = mongoDB.jarvisResp("Greetings")
+        reply_stem_list = mongoDB.jarvisResp("STEM")
+        reply_stem_team_list = mongoDB.jarvisResp("STEM.Teams")
+        reply_say_hello_list = mongoDB.jarvisResp("SayHello")
+    if mongoDBSetting is False and MySQLSetting is False:
+        exit("DATABASE SELECTION ERROR!")
     
     
     with sr.Microphone() as source: #sets microphone
