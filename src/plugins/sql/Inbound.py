@@ -28,9 +28,9 @@ conn = mysql.connect(
   host = sqlHost,
   user = sqlUser,
   password = sqlPwd,
-  
+  database= sqlDB
 )
-
+cursor = conn.cursor()
 #& Functions &#
 
 #~ define and build functions here
