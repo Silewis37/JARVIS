@@ -31,9 +31,19 @@ conn = mysql.connect(
   database= sqlDB
 )
 cursor = conn.cursor()
+
 #& Functions &#
 
-#~ define and build functions here
+def userReq(requestType):
+  query = f"SELECT REQUEST FROM user_requests WHERE REQUESTTYPE='{requestType}'"
+  cursor.execute(query)
+  rows = cursor.fetchall()
+  for row in rows:
+    json_data = row[0]  # Assuming the JSON data is in the first column
+    parsed_data = json.loads(str(json_data))  # Parse JSON to a Python dictionary
+    requestList = parsed_data.get('request', [])
+    return requestList
+  return requestList
 
 #= Classes =#
 

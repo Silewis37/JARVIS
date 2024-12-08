@@ -54,7 +54,7 @@ def jarvisSettings(settingType, settingName):
 
 #! Main Program !#
 
-#~ the main program goes here
+print(userReq("Greetings"))
 
 
 
