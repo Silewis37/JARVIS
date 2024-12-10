@@ -1,5 +1,9 @@
 - Fix handTracking.py not to have the red dots on the hand.
 - Fix handTracking.py not to have the lines everywhere on the hands and have it be toggleable.
 - Work on the MySQL Server Connection.
-- Transfer all MongoDB commands and functions over to MySQL commands and functions.
 - Update MySQL Server Documentation.
+- Add all Documentation for each plugin and how to create more
+- Add Documentation on the EXAMPLE.env file
+- Add a README.md File
+- Describe all of JARVIS and the end goal of the project in the README.md file.
+- 
