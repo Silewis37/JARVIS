@@ -43,7 +43,6 @@ def userReq(requestType):
     parsed_data = json.loads(str(json_data))  # Parse JSON to a Python dictionary
     requestList = parsed_data.get('request', [])
     return requestList
-  return requestList
 
 def jarvisResp(responseType):
   query = f"SELECT RESPONSE FROM jarvis_responses WHERE RESPONSETYPE='{responseType}'"
@@ -54,7 +53,6 @@ def jarvisResp(responseType):
     parsed_data = json.loads(str(json_data))  # Parse JSON to a Python dictionary
     responseList = parsed_data.get('response', [])
     return responseList
-  return responseList
 
 #= Classes =#
 

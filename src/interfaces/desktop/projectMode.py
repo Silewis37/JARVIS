@@ -20,7 +20,8 @@ import sys
 
 sys.path.append(os.path.abspath("../../"))
 
-import plugins.connections.thingiverse as thv
+import plugins.projectMode.thingiverse as thv
+import plugins.projectMode.printerConnection as printerConn
 import interfaces.desktop.voiceBox as VBox
 import speech_recognition as sr
 import plugins.mongoDB.mongoIN as mongoIN
@@ -32,8 +33,8 @@ import _settings.settingHandler as settingsHandler
 engine = pyttsx3.init('nsss')
 source = sr.Microphone()
 r = sr.Recognizer()
-mongoDBSetting = settingsHandler.DatabaseSettings.checkMongoDB("../../_settings/connectionSettings/connectionSettings.json")
-MySQLSetting = settingsHandler.DatabaseSettings.checkMySQL("../../_settings/connectionSettings/connectionSettings.json")
+mongoDBSetting = settingsHandler.DatabaseSettings.checkMongoDB("src/_settings/connectionSettings/connectionSettings.json")
+MySQLSetting = settingsHandler.DatabaseSettings.checkMySQL("src/_settings/connectionSettings/connectionSettings.json")
 
 #& Functions &#
 

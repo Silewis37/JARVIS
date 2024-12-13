@@ -16,6 +16,7 @@ import datetime
 from playsound import playsound
 import os
 import sys
+import traceback
 
 #* Custom Libraries *#
 
@@ -23,7 +24,7 @@ sys.path.append(os.path.abspath("../../"))
 print("\n".join(sys.path))
 
 
-import plugins.connections.thingiverse as thingiverse
+import plugins.projectMode.thingiverse as thingiverse
 import interfaces.desktop.projectMode as projectMode
 import plugins.mongoDB.mongoIN as mongoDB
 import plugins.sql.Inbound as MySQL
@@ -35,10 +36,16 @@ import _settings.settingHandler as settingsHandler
 keywords = [("jarvis", 0), ("hey jarvis", 1)]
 source = sr.Microphone()
 engine = pyttsx3.init('nsss') #Initialises the speech engine
-mongoDBSetting = settingsHandler.DatabaseSettings.checkMongoDB("../../_settings/connectionSettings/connectionSettings.json")
-MySQLSetting = settingsHandler.DatabaseSettings.checkMySQL("../../_settings/connectionSettings/connectionSettings.json")
+mongoDBSetting = settingsHandler.DatabaseSettings.checkMongoDB("src/_settings/connectionSettings/connectionSettings.json")
+MySQLSetting = settingsHandler.DatabaseSettings.checkMySQL("src/_settings/connectionSettings/connectionSettings.json")
+
 
 #& Functions &#
+
+def log_error(error_message):
+    """Logs the provided error message into an errors.txt file."""
+    with open("errors.txt", "a") as error_file:
+        error_file.write(f"{datetime.datetime.now()} - {error_message}\n")
 
 def clear():
     os.system("clear")
@@ -68,7 +75,7 @@ def start_recognizer(): #initial keyword call
     clear()
     global r
     r = sr.Recognizer()
-    playsound('./audio/online.mp3')
+    playsound('src/audio/online.mp3')
     #print("Waiting for a keyword...Jarvis or Hey Jarvis") #Prints to screen
     r.listen_in_background(source, callback) #Sets off recognition sequence
     time.sleep(10000) #keeps loop running
@@ -118,7 +125,7 @@ def recognize_main(): #Main reply call function
     
     
     with sr.Microphone() as source: #sets microphone
-        playsound('./audio/online.mp3')
+        playsound('src/audio/online.mp3')
         print("Online")
         audio = r.listen(source) #sets variable 'audio'
     data = "" #assigns user voice entry to variable 'data'
@@ -249,14 +256,14 @@ def recognize_main(): #Main reply call function
         
         else: #what happens if none of the if statements are true
             MJ.send_message(data)
-            f = open("./outputText.txt", "r")
+            f = open("src/outputText.txt", "r")
             text = f.read()
             time_taken = len(text.split()) / (speech_rate / 60.0)
             print("\n"+text)
             Speak(text, 0)
             time.sleep(time_taken+1)
             engine.endLoop()
-            playsound('./audio/online.mp3')
+            playsound('src/audio/online.mp3')
             #start_recognizer()
     except sr.UnknownValueError: #whenever you have a try statement you have an exception rule
         Speak("I'm sorry sir, I did not understand your request", 0) #calls Speak function and says something
@@ -265,6 +272,11 @@ def recognize_main(): #Main reply call function
         print("Jarvis did not understand your request")    
     except sr.RequestError as e: # if you get a request error from Google speech engine
         print("Could not request results from Google Speech Recognition service; {0}".format(e))
+    except sr.RequestError as e:
+        log_error(f"Google Speech Recognition request error: {e}")
+    except Exception as e:
+        log_error(traceback.format_exc())
+        Speak("An error occurred. Please check the logs.", 0) 
 
 #= Classes =#
 

@@ -15,13 +15,18 @@ import json
 import time
 import os
 import sys
+from dotenv import load_dotenv
 
 #* Custom Libraries *#
-sys.path.append(os.path.abspath("../../"))
+
+sys.path.append(os.path.abspath("../../../../"))
 import plugins.mongoDB.mongoIN as mongoIN
 
 #^ Variables ^#
 
+load_dotenv()
+
+thingiverseToken = os.getenv("THINGIVERSE_TOKEN")
 
 
 #& Functions &#
@@ -30,11 +35,16 @@ def getPrints(search):
   api_url = f"https://api.thingiverse.com/search/{search}"
   params = {"type": "thing", "page": "1", "per_page": "3", "sort":"popular"}
   header = {"Content-Type": "application/json", "Authorization": mongoIN.jarvisSettings("ThingiVerse.ConnectionInfo", "API Key")}
+  #header = {"Content-Type": "application/json", "Authorization": f"Bearer {thingiverseToken}"}
+  #print (mongoIN.jarvisSettings("ThingiVerse.ConnectionInfo", "API Key"))
+  print(api_url)
+  print(header)
   response = requests.get(api_url, params=params, headers=header)
+  return response
 
 
 def getPrintInfo():
-  inputFile = open("./data/thingiverse/data1.json", "r")
+  inputFile = open("../../../../data/thingiverse/data1.json", "r")
   data = json.load(inputFile)
   header = {"Content-Type": "application/json", "Authorization": mongoIN.jarvisSettings("ThingiVerse.ConnectionInfo", "API Key")}
   
@@ -84,8 +94,7 @@ def downloadFiles(selected):
 
 #! Main Program !#
 
-#~ the main program goes here
-
+print(getPrints('test'))
 
 
 #- UNASSIGNED COLOR -#
