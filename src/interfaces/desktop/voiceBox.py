@@ -42,9 +42,14 @@ MySQLSetting = settingsHandler.DatabaseSettings.checkMySQL("src/_settings/connec
 
 #& Functions &#
 
+def clear_error_log():
+    """Clears the Error Log File."""
+    with open("errors.txt", "w") as error_file:
+        error_file.write("EVERYTHING IS IN WORKING CONDITION!")
+
 def log_error(error_message):
     """Logs the provided error message into an errors.txt file."""
-    with open("errors.txt", "a") as error_file:
+    with open("errors.txt", "w") as error_file:
         error_file.write(f"{datetime.datetime.now()} - {error_message}\n")
 
 def clear():
@@ -80,6 +85,7 @@ def start_recognizer(): #initial keyword call
     r.listen_in_background(source, callback) #Sets off recognition sequence
     time.sleep(10000) #keeps loop running
 def recognize_main(): #Main reply call function
+    clear_error_log()
     speech_rate = engine.getProperty('rate')
     
     if MySQLSetting is True:
@@ -276,7 +282,7 @@ def recognize_main(): #Main reply call function
         log_error(f"Google Speech Recognition request error: {e}")
     except Exception as e:
         log_error(traceback.format_exc())
-        Speak("An error occurred. Please check the logs.", 0) 
+        Speak("An error occurred. Please check the logs.", 0)
 
 #= Classes =#
 

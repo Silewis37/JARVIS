@@ -51,7 +51,7 @@ def jarvisResp(responseType):
   for row in rows:
     json_data = row[0]  # Assuming the JSON data is in the first column
     parsed_data = json.loads(str(json_data))  # Parse JSON to a Python dictionary
-    responseList = parsed_data.get('response', [])
+    responseList = parsed_data.get('responses', [])
     return responseList
 
 #= Classes =#
