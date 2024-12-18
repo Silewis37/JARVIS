@@ -12,6 +12,7 @@ import sys
 from github import Github
 import requests
 import urllib.request
+from dotenv import load_dotenv
 
 
 #* Custom Libraries *#
@@ -20,7 +21,10 @@ import _settings.settingHandler as settingsHandler
 
 #^ Variables ^#
 
-g = Github("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")
+load_dotenv()
+
+GithubAPI_TOKEN = os.getenv('GITHUB_API_TOKEN')
+g = Github(GithubAPI_TOKEN)
 
 #& Functions &#
 
@@ -28,7 +32,7 @@ def RepoForks(Owner, Repo):
   url = f"https://api.github.com/repos/{Owner}/{Repo}/forks"
   h = {
     "Accept": "application/vnd.github+json",
-    "Authorization": "Bearer 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",
+    "Authorization": f"Bearer {GithubAPI_TOKEN}",
     "X-GitHub-Api-Version": "2022-11-28"
   }
   response = requests.get(url, headers=h)

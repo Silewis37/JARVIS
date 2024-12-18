@@ -10,6 +10,9 @@
 import requests
 import pymongo
 from pymongo.server_api import ServerApi
+import os
+import sys
+from dotenv import load_dotenv
 
 #* Custom Libraries *#
 
@@ -17,7 +20,10 @@ from pymongo.server_api import ServerApi
 
 #^ Variables ^#
 
-myClient = pymongo.MongoClient("mongodb://localhost:27017/?retryWrites=true&w=majority")
+load_dotenv()
+
+mongoDB_HOST = os.getenv("MONGODB_HOST")
+myClient = pymongo.MongoClient(mongoDB_HOST)
 
 #& Functions &#
 

@@ -11,6 +11,7 @@
 import requests
 import json
 import os
+from dotenv import load_dotenv
 
 #* Custom Libraries *#
 
@@ -18,7 +19,9 @@ import os
 
 #^ Variables ^#
 
-api_key = 'llCERWZfxopBoWxgbnfogjoZG81gSodkEYk0fljZ'
+load_dotenv()
+
+WatchMode_Token = os.getenv("WATCHMODE_TOKEN")
 
 #& Functions &#
 

@@ -15,6 +15,8 @@ from tkinter import messagebox
 import json
 from tkinter import *
 import tkinter as tk
+import sys
+from dotenv import load_dotenv
 
 #* Custom Libraries *#
 
@@ -22,8 +24,11 @@ import tkinter as tk
 
 #^ Variables ^#
 
+load_dotenv()
+
+mongoDB_HOST = os.getenv('MONGODB_HOST')
 root = Tk()
-myClient = pymongo.MongoClient("mongodb://localhost:27017/?retryWrites=true&w=majority")
+myClient = pymongo.MongoClient(mongoDB_HOST)
 
 #& Functions &#
 

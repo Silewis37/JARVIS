@@ -19,7 +19,7 @@ from dotenv import load_dotenv
 
 #* Custom Libraries *#
 
-sys.path.append(os.path.abspath("../../../../"))
+sys.path.append(os.path.abspath("../../"))
 import plugins.mongoDB.mongoIN as mongoIN
 
 #^ Variables ^#
@@ -34,12 +34,14 @@ thingiverseToken = os.getenv("THINGIVERSE_TOKEN")
 def getPrints(search):
   api_url = f"https://api.thingiverse.com/search/{search}"
   params = {"type": "thing", "page": "1", "per_page": "3", "sort":"popular"}
-  header = {"Content-Type": "application/json", "Authorization": mongoIN.jarvisSettings("ThingiVerse.ConnectionInfo", "API Key")}
-  #header = {"Content-Type": "application/json", "Authorization": f"Bearer {thingiverseToken}"}
+  # header = {"Content-Type": "application/json", "Authorization": mongoIN.jarvisSettings("ThingiVerse.ConnectionInfo", "API Key")}
+  # header = {"Content-Type": "application/json", "Authorization": f"Bearer {thingiverseToken}"}
+  header = {"Content-Type": "application/json", "Authorization": f"Bearer caf8d628c0e9ffeae44968e2f2fae890"}
   #print (mongoIN.jarvisSettings("ThingiVerse.ConnectionInfo", "API Key"))
   print(api_url)
   print(header)
-  response = requests.get(api_url, params=params, headers=header)
+  response = requests.get(api_url, headers=header)
+  print(response.status_code)
   return response
 
 
@@ -94,7 +96,7 @@ def downloadFiles(selected):
 
 #! Main Program !#
 
-print(getPrints('test'))
+print(getPrints("gridfinity"))
 
 
 #- UNASSIGNED COLOR -#
