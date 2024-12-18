@@ -24,7 +24,7 @@ import interfaces.desktop.voiceBox as VBox
 #! Main Program !#
 
 while 1: #This starts a loop so the speech recognition is always listening to you
-    VBox.start_recognizer() #calls first function 'start_recogniser'
+    VBox.start_recognizer() #calls first function 'start_recognizer'
 
 
 

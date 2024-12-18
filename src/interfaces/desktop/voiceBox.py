@@ -67,7 +67,7 @@ def Speak(text, ver):
         engine.startLoop()
 def callback(recognizer, audio):
     try:
-        speech_as_text = recognizer.recognize_sphinx(audio, keyword_entries=keywords) #Uses Sphinx to recognise speech
+        speech_as_text = recognizer.recognize_sphinx(audio, keyword_entries=keywords) #Uses Sphinx to recognize speech
         #print(speech_as_text) #prints what was said on the screen
         if "jarvis" in speech_as_text or "hey jarvis": #starter names
             Speak("Yes sir?", 1) #Calls 'Speak' and acknowledges user
@@ -139,7 +139,7 @@ def recognize_main(): #Main reply call function
         date = datetime.datetime.now()
         data = r.recognize_google(audio) #now uses Google speech recognition
         data.lower() # makes all voice entries show as lower case
-        print("You said: " + data) #shows what user said and what was recognised
+        print("You said: " + data) #shows what user said and what was recognized
         #- Speech Aliases -#
         if "hello" in data:
             hour = date.hour

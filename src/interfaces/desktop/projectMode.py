@@ -98,7 +98,7 @@ def projectMode_main():
             try:
                 data1 = r.recognize_google(audio1) #now uses Google speech recognition
                 data1.lower()
-                print("You said: " + data1) #shows what user said and what was recognised
+                print("You said: " + data1) #shows what user said and what was recognized
                 thv.getPrints(data1)
                 printInfo = thv.getPrintInfo()
                 PrintName1 = printInfo[0]["Print_Name"]
@@ -130,7 +130,7 @@ def projectMode_main():
             try:
                 data1 = r.recognize_google(audio1) #now uses Google speech recognition
                 data1.lower()
-                print("You said: " + data1) #shows what user said and what was recognised
+                print("You said: " + data1) #shows what user said and what was recognized
                 thv.getPrints(data1)
                 printInfo = thv.getPrintInfo()
                 PrintName1 = printInfo[0]["Print_Name"]

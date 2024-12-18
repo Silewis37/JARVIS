@@ -40,6 +40,7 @@ openai
 openpyxl
 paramiko
 pupil-apriltags
+pyGithub
 pymongo
 speedtest
 speedtest-cli
