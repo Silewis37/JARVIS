@@ -18,3 +18,4 @@
 - Create dedicated "Project Mode" plugins folder
 - Create documentation on "Project Mode" plugins
 - Create documentation on how to create plugins for "Project Mode"
+- Work more on the Implementations of the Gridfinity portions of the Project Mode
