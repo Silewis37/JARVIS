@@ -19,3 +19,9 @@
 - Create documentation on "Project Mode" plugins
 - Create documentation on how to create plugins for "Project Mode"
 - Work more on the Implementations of the Gridfinity portions of the Project Mode
+
+## HAND TRACKING TODO LIST
+
+- Work on the documentation for this portion of the project.
+- Work on the different parts of the main program
+- Isolate each part so that it can be better debugged.
