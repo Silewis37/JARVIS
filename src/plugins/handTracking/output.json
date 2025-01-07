@@ -1,9 +1,9 @@
 {
     "classification": [
         {
-            "index": 1,
-            "score": 0.98537934,
-            "label": "Right"
+            "index": 0,
+            "score": 0.99073577,
+            "label": "Left"
         }
     ]
 }

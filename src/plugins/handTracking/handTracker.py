@@ -85,7 +85,7 @@ def main():
   left_pinky = False
   
   frame_width = 1280
-  frame_height = 720
+  frame_height = 1080
 
   
   
@@ -130,6 +130,9 @@ def main():
       cv2.putText(frame, "FPS: " + str(cap.get(cv2.CAP_PROP_FPS)), (1100,50), cv2.FONT_HERSHEY_COMPLEX, 0.9, (0, 255, 0), 2)
 
       frame_height, frame_width, _ = frame.shape
+      frame_height == 1080
+      frame_width == 1280
+      #print(frame.shape)
 
       if results.multi_hand_landmarks:
           for hand_landmarks in results.multi_hand_landmarks:

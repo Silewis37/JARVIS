@@ -87,8 +87,6 @@ class BoundingBox():
       calibrating = data["DeadZone Calibration"]["Active"]
       return calibrating
   
-  
-  
   class DeadZoneActivation():
     def Activate(Area):
       if Area == "Top":
@@ -144,8 +142,6 @@ class BoundingBox():
       with open("../../_settings/deadZoneSettings.json", 'w') as f:
           json.dump(data, f, indent=4)
   
-  
-  
   class DeadZone():
     def Top(frame1, fWidth):
       with open("../../_settings/deadZoneSettings.json", 'r') as f:
@@ -167,7 +163,7 @@ class BoundingBox():
           data = json.load(f)
       width = data["DeadZone Sizing"]["Width"]
       cv2.rectangle(frame1, (1280,0), (1280-width,fHeight), (0,0,255), -1)
-
+  
 
 class LeftHand():
   class CheckingLayers():

@@ -11,16 +11,16 @@
     },
     "DeadZones": {
         "Top": {
-            "Active": true
+            "Active": false
         },
         "Right": {
-            "Active": true
+            "Active": false
         },
         "Left": {
-            "Active": true
+            "Active": false
         },
         "Bottom": {
-            "Active": true
+            "Active": false
         }
     }
 }

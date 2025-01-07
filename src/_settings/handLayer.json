@@ -7,8 +7,8 @@
     },
     "Left Hand": {
         "Changer": false,
-        "Layer 1": true,
+        "Layer 1": false,
         "Layer 2": false,
-        "Layer 3": false
+        "Layer 3": true
     }
 }

@@ -6,7 +6,7 @@
 
 cython
 datetime
-dlib
+#dlib
 mediapipe
 mysql-connector-python
 numpy
@@ -15,7 +15,7 @@ opencv-contrib-python
 opencv-python
 opencv-python-headless
 pandas
-playsound
+#playsound
 pocketsphinx
 protobuf
 pyautogui
