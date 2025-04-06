@@ -50,6 +50,23 @@ test_selector = input("Select which Test:")
 
 if test_selector == 1:
   at.main()
+elif test_selector == 2:
+  hTm.main()
+elif test_selector == 3:
+  hT.main()
+elif test_selector == 4:
+  weather.main()
+elif test_selector == 5:
+  mongoIN.main()
+elif test_selector == 6:
+  mongoOUT.main()
+elif test_selector == 7:
+  sqlInbound.main()
+elif test_selector == 8:
+  print("Not yet implemented")
+else:
+  print("Invalid input, please select a number between 1 and 8")
+#* End of Main Program *#
 
 
 

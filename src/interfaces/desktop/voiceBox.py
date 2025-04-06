@@ -13,7 +13,7 @@ import speech_recognition as sr
 import time
 import random #to allow random replies to questions
 import datetime
-from playsound import playsound
+#from playsound import playsound
 import os
 import sys
 import traceback
@@ -80,7 +80,7 @@ def start_recognizer(): #initial keyword call
     clear()
     global r
     r = sr.Recognizer()
-    playsound('src/audio/online.mp3')
+    #playsound('src/audio/online.mp3')
     #print("Waiting for a keyword...Jarvis or Hey Jarvis") #Prints to screen
     r.listen_in_background(source, callback) #Sets off recognition sequence
     time.sleep(10000) #keeps loop running
@@ -131,7 +131,7 @@ def recognize_main(): #Main reply call function
     
     
     with sr.Microphone() as source: #sets microphone
-        playsound('src/audio/online.mp3')
+        #playsound('src/audio/online.mp3')
         print("Online")
         audio = r.listen(source) #sets variable 'audio'
     data = "" #assigns user voice entry to variable 'data'
@@ -269,7 +269,7 @@ def recognize_main(): #Main reply call function
             Speak(text, 0)
             time.sleep(time_taken+1)
             engine.endLoop()
-            playsound('src/audio/online.mp3')
+            #playsound('src/audio/online.mp3')
             #start_recognizer()
     except sr.UnknownValueError: #whenever you have a try statement you have an exception rule
         Speak("I'm sorry sir, I did not understand your request", 0) #calls Speak function and says something

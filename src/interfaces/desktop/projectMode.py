@@ -12,7 +12,7 @@
 
 import pyttsx3
 import time
-from playsound import playsound
+# from playsound import playsound
 import os
 import sys
 
@@ -71,7 +71,7 @@ def projectMode_main():
     
     speech_rate = engine.getProperty('rate')
     with sr.Microphone() as source:
-        playsound('./audio/online.mp3')
+        #playsound('./audio/online.mp3')
         print("Project Mode Activated")
         audio = r.listen(source)
     data = ""
@@ -91,7 +91,7 @@ def projectMode_main():
                 Speak("What would you like to look for?")
                 time.sleep(3)
                 engine.endLoop()
-                playsound('./audio/online.mp3')
+                #playsound('./audio/online.mp3')
                 audio1 = r.listen(source) #sets variable 'audio'
             data1 = "" #assigns user voice entry to variable 'data'
             print(data1)
@@ -123,7 +123,7 @@ def projectMode_main():
                 Speak("What would you like to look for?")
                 time.sleep(3)
                 engine.endLoop()
-                playsound('./audio/online.mp3')
+                #playsound('./audio/online.mp3')
                 audio1 = r.listen(source) #sets variable 'audio'
             data1 = "" #assigns user voice entry to variable 'data'
             print(data1)
@@ -154,7 +154,7 @@ def projectMode_main():
                     Speak(text1)
                     time.sleep(time_taken1)
                     engine.endLoop()
-                    playsound('./audio/online.mp3')
+                    #playsound('./audio/online.mp3')
                     audio2 = r.listen(source) #sets variable 'audio'
                 data2 = "" #assigns user voice entry to variable 'data'
                 print(data2)

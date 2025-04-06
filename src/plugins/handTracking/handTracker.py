@@ -68,6 +68,10 @@ def Draw_TrackingBox2(frame1):
 
 
 def main():
+  CAMERA_WIDTH = 1280
+  CAMERA_HEIGHT = 640
+  cap.set(cv2.CAP_PROP_FRAME_WIDTH, CAMERA_WIDTH)
+  cap.set(cv2.CAP_PROP_FRAME_HEIGHT, CAMERA_HEIGHT)
   # Both Hands
   index = False
   middle = False
