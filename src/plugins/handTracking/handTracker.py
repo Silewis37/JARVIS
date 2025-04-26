@@ -18,8 +18,8 @@ import sys
 #* Custom Libraries *#
 
 
-sys.path.append(os.path.abspath("./plugins/handTracking/"))
-import handFunctions as handFunc
+sys.path.append(os.path.abspath("./src"))
+import plugins.handTracking.handFunctions as handFunc
 
 #^ Variables ^#
 
@@ -363,11 +363,13 @@ def main():
                     if distance_pinky_left > 0.051 and left_pinky == True:
                         left_pinky = False
                     
-                    if layer == 1:
+                    layerL = handFunc.LeftHand.CheckingLayers.CheckActiveLayer()
+                    
+                    if layerL == 1:
                         handFunc.LeftHand.Layer1.color(frame, thumb_coord_real, index_finger_coord_real, middle_finger_real, ring_finger_real, pinky_finger_real, midpoint_index, midpoint_ring, midpoint_middle, midpoint_pinky)
-                    elif layer == 2:
+                    elif layerL == 2:
                         handFunc.LeftHand.Layer2.color(frame, thumb_coord_real, index_finger_coord_real, middle_finger_real, ring_finger_real, pinky_finger_real, midpoint_index, midpoint_ring, midpoint_middle, midpoint_pinky)                    
-                    elif layer == 3:
+                    elif layerL == 3:
                         handFunc.LeftHand.Layer3.color(frame, thumb_coord_real, index_finger_coord_real, middle_finger_real, ring_finger_real, pinky_finger_real, midpoint_index, midpoint_ring, midpoint_middle, midpoint_pinky)
                     
                     #: Left Hand Index :#
@@ -442,13 +444,13 @@ def main():
                         # Mouse Right Click
                         right_pinky = False
                     
-                    layer = handFunc.RightHand.CheckingLayers.CheckActiveLayer()
+                    layerR = handFunc.RightHand.CheckingLayers.CheckActiveLayer()
                     
-                    if layer == 1:
+                    if layerR == 1:
                         handFunc.RightHand.Layer1.color(frame, thumb_coord_real, index_finger_coord_real, middle_finger_real, ring_finger_real, pinky_finger_real, midpoint_index, midpoint_ring, midpoint_middle, midpoint_pinky)
-                    elif layer == 2:
+                    elif layerR == 2:
                         handFunc.RightHand.Layer2.color(frame, thumb_coord_real, index_finger_coord_real, middle_finger_real, ring_finger_real, pinky_finger_real, midpoint_index, midpoint_ring, midpoint_middle, midpoint_pinky)                    
-                    elif layer == 3:
+                    elif layerR == 3:
                         handFunc.RightHand.Layer3.color(frame, thumb_coord_real, index_finger_coord_real, middle_finger_real, ring_finger_real, pinky_finger_real, midpoint_index, midpoint_ring, midpoint_middle, midpoint_pinky)
                     
                     
@@ -590,7 +592,6 @@ def main():
 
 #! Main Program !#
 
-main() 
 
 #? UNASSIGNED COLOR ?#
 #+ UNASSIGNED COLOR +#

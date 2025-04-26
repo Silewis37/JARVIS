@@ -16,7 +16,7 @@ from dotenv import load_dotenv
 
 
 #* Custom Libraries *#
-
+sys.path.append(os.path.abspath("./src"))
 import _settings.settingHandler as settingsHandler
 
 #^ Variables ^#

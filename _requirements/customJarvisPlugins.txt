@@ -1,0 +1,7 @@
+#########################
+
+#? Custom JARVIS Plugins
+
+#########################
+
+jarvis-api-library>=1.0.0

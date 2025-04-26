@@ -10,12 +10,16 @@
 import cv2
 import mediapipe as mp
 import pyautogui as pag
+import sys
+import os
 import numpy as np
 
 
 #* Custom Libraries *#
 
-#~ import custom made libraries here
+sys.path.append(os.path.abspath("./src"))
+import plugins.handTracking.handFunctions as handFunc
+
 
 #^ Variables ^#
 
@@ -47,7 +51,116 @@ circle = 0
 
 #& Functions &#
 
+def clear():
+    os.system("cls")
+
+# Button Class with Action Binding
+class Button:
+    def __init__(self, x, y, width, height, label, on_click, color_idle=(0, 200, 0), color_active=(0, 0, 200)):
+        self.x = x
+        self.y = y
+        self.width = width
+        self.height = height
+        self.label = label
+        self.on_click = on_click
+        self.color_idle = color_idle
+        self.color_active = color_active
+        self.pressed = False
+        self.was_pressed = False
+
+    def draw(self, frame):
+        color = self.color_active if self.pressed else self.color_idle
+        cv2.rectangle(frame, (self.x, self.y),
+                      (self.x + self.width, self.y + self.height),
+                      color, -1)
+        cv2.putText(frame, self.label, 
+                    (self.x + 10, self.y + self.height // 2 + 10),
+                    cv2.FONT_HERSHEY_SIMPLEX, 0.8, (255, 255, 255), 2)
+
+    def is_point_inside(self, px, py):
+        return self.x <= px <= self.x + self.width and self.y <= py <= self.y + self.height
+
+    def update(self, px, py, pinch):
+        if pinch and self.is_point_inside(px, py):
+            self.pressed = True
+            if not self.was_pressed:
+                self.on_click()
+                self.was_pressed = True
+        else:
+            self.pressed = False
+            self.was_pressed = False
+
+
+def say_hello():
+    print("hello fucker")
+
+def clear_terminal():
+    os.system('cls' if os.name == 'nt' else 'clear')
+
+
+def mouse2():
+    cap.set(cv2.CAP_PROP_FRAME_WIDTH, screen_width)
+    cap.set(cv2.CAP_PROP_FRAME_HEIGHT, screen_height)
+
+    # Create buttons
+    send_button = Button(x=100, y=100, width=200, height=80, label="Say Hello", on_click=say_hello)
+    clear_button = Button(x=100, y=220, width=200, height=80, label="Clear Terminal", on_click=clear_terminal)
+
+    while True:
+        success, frame = cap.read()
+        if not success:
+            break
+
+        frame = cv2.flip(frame, 1)
+        rgb_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+        results = hands.process(rgb_frame)
+        frame_height, frame_width, _ = frame.shape
+
+        # Solid black background
+        canvas = np.zeros((frame_height, frame_width, 3), dtype=np.uint8)
+
+        px, py = 0, 0
+        pinch = False
+
+        if results.multi_hand_landmarks:
+            for hand_landmarks in results.multi_hand_landmarks:
+                index_tip = hand_landmarks.landmark[mp_hands.HandLandmark.INDEX_FINGER_TIP]
+                thumb_tip = hand_landmarks.landmark[mp_hands.HandLandmark.THUMB_TIP]
+
+                midpoint_x = (index_tip.x + thumb_tip.x) / 2
+                midpoint_y = (index_tip.y + thumb_tip.y) / 2
+                distance = np.sqrt((index_tip.x - thumb_tip.x) ** 2 +
+                                   (index_tip.y - thumb_tip.y) ** 2)
+
+                px = int(midpoint_x * frame_width)
+                py = int(midpoint_y * frame_height)
+                pinch = distance < 0.05
+
+        # Draw buttons first
+        send_button.update(px, py, pinch)
+        clear_button.update(px, py, pinch)
+
+        send_button.draw(canvas)
+        clear_button.draw(canvas)
+
+        # Draw the midpoint dot LAST so it's on top of everything
+        if results.multi_hand_landmarks:
+            cv2.circle(canvas, (px, py), 8, (0, 255, 255), -1)  # yellow dot on top
+
+        # Display result
+        cv2.imshow("Midpoint on Top", canvas)
+        if cv2.waitKey(1) & 0xFF == 27:
+            break
+
+    cap.release()
+    cv2.destroyAllWindows()
+
+
+
+
 def mouse():
+  cap.set(cv2.CAP_PROP_FRAME_WIDTH, screen_width)
+  cap.set(cv2.CAP_PROP_FRAME_HEIGHT, screen_height)
   mouseDown = False
   mouseDownDB = False
   mouseRight = False        
@@ -173,7 +286,6 @@ def mouse():
 
 #! Main Program !#
 
-mouse()
 
 
 #- UNASSIGNED COLOR -#
