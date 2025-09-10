@@ -62,8 +62,6 @@ def jarvisResp(responseType):
 
 #~ the main program goes here
 
-
-
 #- UNASSIGNED COLOR -#
 #| UNASSIGNED COLOR |#
 #? UNASSIGNED COLOR ?#
