@@ -19,7 +19,7 @@ import sys
 
 
 sys.path.append(os.path.abspath("./src"))
-import plugins.handTracking.handFunctions as handFunc
+import src.plugins.handTracking.handFunctions2 as handFunc
 
 #^ Variables ^#
 
@@ -592,6 +592,7 @@ def main():
 
 #! Main Program !#
 
+main()
 
 #? UNASSIGNED COLOR ?#
 #+ UNASSIGNED COLOR +#
